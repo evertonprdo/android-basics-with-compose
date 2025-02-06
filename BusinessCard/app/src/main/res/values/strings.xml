@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Business Card</string>
+    <string name="full_name">Everton Prdo</string>
+    <string name="title">Mobile developer</string>
+    <string name="phone_number">+55 (00) 9 0000 0000</string>
+    <string name="github">\@evertonprdo</string>
+    <string name="email">ecpj.prado@gmail.com</string>
+</resources>
