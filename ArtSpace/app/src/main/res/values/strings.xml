@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Art Space</string>
+
+    <string name="prev_btn_content">Previous</string>
+    <string name="next_btn_content">Next</string>
+
+    <string name="art_01_title">Milky Way full of stars in space</string>
+    <string name="art_01_artist">wirestock</string>
+    <string name="art_01_year">2017</string>
+
+    <string name="art_02_title">Satellite approaching earth</string>
+    <string name="art_02_artist">kjpargeter</string>
+    <string name="art_02_year">2019</string>
+
+    <string name="art_03_title">Journey to the concept of planet Mars</string>
+    <string name="art_03_artist">freepik</string>
+    <string name="art_03_year">2022</string>
+
+    <string name="art_04_title">Space Travel Collage Drawing</string>
+    <string name="art_04_artist">freepik</string>
+    <string name="art_04_year">2025</string>
+
+    <string name="art_05_title">An astronaut diving into the ocean.</string>
+    <string name="art_05_artist">freepik</string>
+    <string name="art_05_year">2024</string>
+</resources>
