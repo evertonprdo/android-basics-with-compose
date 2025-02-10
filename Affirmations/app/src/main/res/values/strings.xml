@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Affirmations</string>
+
+    <string name="affirmation1">I am God\'s masterpiece.</string>
+    <string name="affirmation1_ref">(Ephesians 2:10)</string>
+
+    <string name="affirmation2">I can do all things through Christ who strengthens me.</string>
+    <string name="affirmation2_ref">(Philippians 4:13)</string>
+
+    <string name="affirmation3">The Lord is my shepherd; I shall not want.</string>
+    <string name="affirmation3_ref">(Psalm 23:1)</string>
+
+    <string name="affirmation4">God is love.</string>
+    <string name="affirmation4_ref">(1 John 4:8)</string>
+
+    <string name="affirmation5">Be strong and courageous.</string>
+    <string name="affirmation5_ref">(Joshua 1:9)</string>
+
+    <string name="affirmation6">Peace I leave with you; my peace I give you.</string>
+    <string name="affirmation6_ref">(John 14:27)</string>
+
+    <string name="affirmation7">The joy of the Lord is my strength.</string>
+    <string name="affirmation7_ref">(Nehemiah 8:10)</string>
+
+    <string name="affirmation8">My help comes from the Lord.</string>
+    <string name="affirmation8_ref">(Psalm 121:2)</string>
+
+    <string name="affirmation9">I walk in faith, not fear.</string>
+    <string name="affirmation9_ref">(2 Timothy 1:7)</string>
+
+    <string name="affirmation10">I am a child of God.</string>
+    <string name="affirmation10_ref">(John 1:12)</string>
+</resources>
