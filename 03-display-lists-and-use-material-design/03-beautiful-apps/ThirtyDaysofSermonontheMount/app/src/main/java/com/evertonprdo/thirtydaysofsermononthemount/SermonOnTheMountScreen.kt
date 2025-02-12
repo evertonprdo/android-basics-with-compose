@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
@@ -31,6 +32,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -49,7 +51,7 @@ import com.evertonprdo.thirtydaysofsermononthemount.model.DayContent
 
 @Composable
 fun SermonOnTheMountScreen(modifier: Modifier = Modifier) {
-    var showIntroduction: Boolean by remember { mutableStateOf(true) }
+    var showIntroduction: Boolean by rememberSaveable { mutableStateOf(true) }
 
     Box(modifier = modifier.fillMaxSize()) {
         if (showIntroduction) {
@@ -58,7 +60,10 @@ fun SermonOnTheMountScreen(modifier: Modifier = Modifier) {
                 modifier = Modifier.zIndex(1f)
             )
         }
-        DailyList(Datasource.dailyContentList)
+        DailyList(
+            Datasource.dailyContentList,
+            modifier = Modifier.fillMaxWidth()
+        )
     }
 }
 
@@ -66,6 +71,7 @@ fun SermonOnTheMountScreen(modifier: Modifier = Modifier) {
 fun DailyList(list: List<DayContent>, modifier: Modifier = Modifier) {
     LazyColumn(
         verticalArrangement = Arrangement.spacedBy(8.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier.padding(horizontal = 8.dp)
     ) {
         items(list) {
@@ -83,13 +89,15 @@ fun DayCard(dayContent: DayContent, modifier: Modifier = Modifier) {
 
     Card(
         elevation = CardDefaults.cardElevation(2.dp),
-        modifier = modifier.fillMaxWidth()
+        modifier = modifier.widthIn(max = 500.dp)
     ) {
         Image(
             painterResource(dayContent.imageResId),
             contentDescription = stringResource(dayContent.titleResId),
             contentScale = ContentScale.Crop,
-            modifier = Modifier.height(heightAnim)
+            modifier = Modifier
+                .height(heightAnim)
+                .fillMaxWidth()
         )
 
         Column(
