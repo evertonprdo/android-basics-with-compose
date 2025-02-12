@@ -15,6 +15,7 @@ class DessertViewModel : ViewModel() {
     private val _uiState = MutableStateFlow(DessertUiState())
     val uiState: StateFlow<DessertUiState> = _uiState.asStateFlow()
 
+    private val dessertList = Datasource.dessertList
     private var currentDessertToShown =
         determineDessertToShow(uiState.value.dessertsSold)
         set(value) {
@@ -41,8 +42,8 @@ class DessertViewModel : ViewModel() {
     }
 
     private fun determineDessertToShow(dessertsSold: Int): Dessert {
-        var dessertToShow = Datasource.dessertList.first()
-        for (dessert in Datasource.dessertList) {
+        var dessertToShow = dessertList.first()
+        for (dessert in dessertList) {
             if (dessertsSold >= dessert.startProductionAmount) {
                 dessertToShow = dessert
             } else {
