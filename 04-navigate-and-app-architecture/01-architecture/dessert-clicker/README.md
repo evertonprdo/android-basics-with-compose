@@ -1,6 +1,8 @@
 Dessert Clicker app
 =====================
 
+![Tela do App](screenshots/img.png)
+
 Code for Android Basics with Compose Codelab.
 
 Introduction

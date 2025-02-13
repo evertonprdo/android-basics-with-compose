@@ -1,5 +1,7 @@
 # 30 Days of the Sermon on the Mount
 
+![Tela do App](screenshots/img.png)
+
 ## Introductory Days: Understanding the World of the Sermon on the Mount
 
 As you begin this 30-day journey through the Sermon on the Mount, take the first few days to immerse yourself in the historical and cultural setting of first-century Israel. This effort will help you better understand the context in which Jesus spoke and the people He addressed.
