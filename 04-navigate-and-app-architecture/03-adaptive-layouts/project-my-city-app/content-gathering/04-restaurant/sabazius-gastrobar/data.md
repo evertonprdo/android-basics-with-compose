@@ -1,0 +1,5 @@
+-  Title: Sabazius Gastrobar
+-  Website: https://www.instagram.com/sabaziusgastrobar/
+-  Phone: +55043999520595
+-  Address: R. Colombo, 125 - Cornélio Procópio, PR, 86300-000
+-  Category: Restaurante | Restaurant

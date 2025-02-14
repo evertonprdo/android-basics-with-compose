@@ -1,0 +1,3 @@
+-  Title: Três Bicas
+-  Address: R. da Fonte - Cornélio Procópio, PR, 86300-000
+-  Category: Lugares para visitar | Places to visit

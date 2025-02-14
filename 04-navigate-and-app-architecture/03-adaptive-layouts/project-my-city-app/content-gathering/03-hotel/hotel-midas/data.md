@@ -1,0 +1,5 @@
+-  Title: Hotel Midas Cornélio Procópio
+-  Website: http://www.hotelmidas.com.br/
+-  Phone: +5504335203300
+-  Address: Av. Paraíso, 560 - Centro, Cornélio Procópio - PR, 86300-000
+-  Category: Hotel

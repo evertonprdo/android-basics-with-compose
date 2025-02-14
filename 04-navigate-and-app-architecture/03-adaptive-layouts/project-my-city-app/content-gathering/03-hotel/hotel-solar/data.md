@@ -1,0 +1,5 @@
+-  Title: Hotel Sollar
+-  Website: https://www.facebook.com/hotelsollar
+-  Phone: +5504331321298
+-  Address: Av. Padre Paulo Broda, 154 - Centro, Cornélio Procópio - PR, 86300-000
+-  Category: Hotel

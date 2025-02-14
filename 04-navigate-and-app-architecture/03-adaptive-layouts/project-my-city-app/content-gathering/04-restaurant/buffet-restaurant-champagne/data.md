@@ -1,0 +1,5 @@
+-  Title: Buffet e Restaurante Champagne
+-  Website: https://www.facebook.com/champagne.champagne.buffet/
+-  Phone: +5504335238908
+-  Address: R. Paraíba, 495 - Cornélio Procópio, PR, 86300-000
+-  Category: Restaurante | Restaurant

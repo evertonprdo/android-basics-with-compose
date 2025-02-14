@@ -1,0 +1,7 @@
+pt-BR:
+
+O Campus Cornélio Procópio foi estabelecido em 1993 como Unidade Descentralizada do CEFET-PR, hoje é lar de aproximadamente 2000 alunos em uma área de 65,1 mil m². Diante da LDBE de 1996, adaptou-se, expandindo sua oferta para cursos de Tecnologia. Em 2005, deu um salto significativo, tornando-se a UTFPR. Os avanços recentes abarcam programas de assistência estudantil, modernização de laboratórios e estreitamento de laços com o mercado através do Hotel Tecnológico e Incubadora de Inovação. A instituição oferece cursos de Engenharia, Tecnologia e Pós-Graduação em disciplinas como Engenharia Elétrica, Mecânica, Informática e Matemática, refletindo seu compromisso com a formação avançada e a interação com a comunidade.
+
+en-USA:
+
+The Cornélio Procópio Campus was established in 1993 as a Decentralized Unit of CEFET-PR and is now home to approximately 2,000 students across a 65,100 m² area. Following the 1996 LDBE, it adapted by expanding its offerings to include Technology courses. In 2005, it took a significant leap, becoming UTFPR. Recent advancements include student assistance programs, laboratory modernization, and stronger ties with the market through the Technology Hotel and Innovation Incubator. The institution offers Engineering, Technology, and Graduate programs in fields such as Electrical Engineering, Mechanical Engineering, Computer Science, and Mathematics, reflecting its commitment to advanced education and community engagement.

@@ -1,0 +1,3 @@
+-  Title: Restaurante Universitário
+-  Address: 86300-000, Cornélio Procópio - PR
+-  Category: Restaurante | Restaurant

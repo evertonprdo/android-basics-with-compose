@@ -1,0 +1,5 @@
+-  Title: Hotel Central
+-  Website: https://www.instagram.com/hotelcentral_cp/
+-  Phone: +55043996080773
+-  Address: Av. Mal. Deodoro, 163 - centro, Cornélio Procópio - PR, 86300-000
+-  Category: Hotel

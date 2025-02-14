@@ -1,0 +1,5 @@
+-  Title: UTFPR Cornélio Procópio
+-  Website: http://portal.utfpr.edu.br/cornelioprocopio
+-  Phone: +5504331333700
+-  Address: Av. Alberto Carazzai, 1640 - Centro, Cornélio Procópio - PR, 86300-000
+-  Category: Universidade pública | Public university
