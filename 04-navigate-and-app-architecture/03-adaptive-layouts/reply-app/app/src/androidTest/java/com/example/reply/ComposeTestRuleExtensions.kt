@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.reply.test
+package com.example.reply
 
 import androidx.activity.ComponentActivity
 import androidx.annotation.StringRes
@@ -21,6 +21,7 @@ import androidx.compose.ui.test.SemanticsNodeInteraction
 import androidx.compose.ui.test.junit4.AndroidComposeTestRule
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithTag
+import androidx.compose.ui.test.onNodeWithText
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 
 /**
@@ -32,10 +33,10 @@ import androidx.test.ext.junit.rules.ActivityScenarioRule
  * and passes it to [onNodeWithContentDescription] function as argument and
  * returns the [SemanticsNodeInteraction] object.
  */
-fun <A : ComponentActivity> AndroidComposeTestRule<ActivityScenarioRule<A>, A>
-        .onNodeWithContentDescriptionForStringId(
+fun <A : ComponentActivity> AndroidComposeTestRule<ActivityScenarioRule<A>, A>.onNodeWithContentDescriptionForStringId(
     @StringRes id: Int
-): SemanticsNodeInteraction = onNodeWithContentDescription(activity.getString(id))
+): SemanticsNodeInteraction =
+    onNodeWithContentDescription(activity.getString(id))
 
 /**
  * Finds a semantics node from the content description with the given string resource id.
@@ -46,7 +47,11 @@ fun <A : ComponentActivity> AndroidComposeTestRule<ActivityScenarioRule<A>, A>
  * and passes it to [onNodeWithTag] function as argument and
  * returns the [SemanticsNodeInteraction] object.
  */
-fun <A : ComponentActivity> AndroidComposeTestRule<ActivityScenarioRule<A>, A>
-        .onNodeWithTagForStringId(
+fun <A : ComponentActivity> AndroidComposeTestRule<ActivityScenarioRule<A>, A>.onNodeWithTagForStringId(
     @StringRes id: Int
 ): SemanticsNodeInteraction = onNodeWithTag(activity.getString(id))
+
+// Helper for onNodeWithText(activity.getString(R.string.*))
+fun <A : ComponentActivity> AndroidComposeTestRule<ActivityScenarioRule<A>, A>.onNodeWithTextForStringId(
+    @StringRes id: Int
+): SemanticsNodeInteraction = onNodeWithText(activity.getString(id))
