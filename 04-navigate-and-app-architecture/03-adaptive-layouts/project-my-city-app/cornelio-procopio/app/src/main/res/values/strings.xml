@@ -1,0 +1,78 @@
+<resources>
+    <string name="app_name" translatable="false">Cornélio Procópio - PR</string>
+
+    <!-- Categories -->
+    <string name="category_places_to_visit_title">Places to visit</string>
+    <string name="category_hotel">Hotel</string>
+    <string name="category_restaurant">Restaurant</string>
+    <string name="category_public_university">Public University</string>
+
+    <!-- Locations -->
+    <!-- Home -->
+    <string name="city_subtitle">A city with history and charms in the North Pioneer region of Paraná</string>
+    <string name="city_about">Founded on February 15, 1938, Cornélio Procópio developed along the km 125 of the railway, receiving its name in honor of Colonel Cornélio Procópio de Araújo Carvalho. With a population of approximately 45,206 inhabitants, it stands out as an educational and health hub in the region. Among its tourist attractions are the Cristo Rei Monument, the Cristo Rei Cathedral, and the Natural History Museum. The city is also known for its green areas, such as the Mata São Francisco State Park, which offers trails and direct contact with nature.</string>
+
+    <!-- UTFPR -->
+    <string name="university_01_title" translatable="false">UTFPR Cornélio Procópio</string>
+    <string name="university_01_website" translatable="false">https://www.utfpr.edu.br/cursos/graduacao/bacharelado/engenharia-de-software</string>
+    <string name="university_01_phone" translatable="false">+5504331333700</string>
+    <string name="university_01_address" translatable="false">Av. Alberto Carazzai, 1640 – Centro, Cornélio Procópio – PR, 86300–000</string>
+    <string name="university_01_about">The Cornélio Procópio Campus was established in 1993 as a Decentralized Unit of CEFET-PR and is now home to approximately 2,000 students across a 65,100 m² area. Following the 1996 LDBE, it adapted by expanding its offerings to include Technology courses. In 2005, it took a significant leap, becoming UTFPR. Recent advancements include student assistance programs, laboratory modernization, and stronger ties with the market through the Technology Hotel and Innovation Incubator. The institution offers Engineering, Technology, and Graduate programs in fields such as Electrical Engineering, Mechanical Engineering, Computer Science, and Mathematics, reflecting its commitment to advanced education and community engagement.</string>
+
+    <!-- Places to Visit -->
+    <string name="places_to_visit_01_title" translatable="false">Monumento Cristo Rei</string>
+    <string name="places_to_visit_01_website" translatable="false">http://www.cornelioprocopio.pr.gov.br/portal/index.php</string>
+    <string name="places_to_visit_01_address" translatable="false">Praça Alto do Cristo Rei, 165 – Cornélio Procópio, PR, 86300–000</string>
+    <string name="places_to_visit_01_about">The Cristo Rei Monument, located at Praça Alto do Cristo Rei, 165, in Cornélio Procópio, Paraná, is one of the city\'s main tourist attractions. Inaugurated in 1958, the monument is considered the largest sacred bronze statue in Latin America, standing at nearly 24 meters tall. The statue itself measures 8.9 meters, while its pedestal is 14.9 meters high. (VIAJE PARANÁ) Situated at the highest point in the city, the monument offers a panoramic view of Cornélio Procópio and its surroundings. The area around the monument is equipped with gardens, benches, lighting, a playground, snack bars, and a skate park, providing a leisure space for residents and visitors alike. (FOLHA DE LONDRINA)</string>
+
+    <string name="places_to_visit_02_title" translatable="false">Mata São Francisco</string>
+    <string name="places_to_visit_02_address" translatable="false">Cornélio Procópio, PR, 86300–000</string>
+    <string name="places_to_visit_02_about">The Mata São Francisco State Park is a protected area located between the municipalities of Cornélio Procópio and Santa Mariana, in the northern part of the state of Paraná, Brazil. Established on December 5, 1994, the park covers an area of approximately 832 hectares and preserves one of the few remaining Seasonal Semideciduous Forests in the region, which is part of the Atlantic Forest biome. The park offers various facilities for visitors, including an environmental education center, accommodations for researchers, barbecue kiosks, a children\'s playground, and restrooms. One of the main attractions is the interpretive trail, which is about 1.6 km (1 mile) long, crossing sections of the forest and two streams, allowing visitors to experience the local biodiversity. (INSTITUTO ÁGUA E TERRA)</string>
+
+    <string name="places_to_visit_03_title" translatable="false">Três Bicas</string>
+    <string name="places_to_visit_03_address" translatable="false">R. da Fonte – Cornélio Procópio, PR, 86300–000</string>
+    <string name="places_to_visit_03_about">Três Bicas is a landmark square in Cornélio Procópio, Paraná, situated on Rua da Fonte. The name "Três Bicas" translates to "Three Spouts," referring to the three water fountains that adorn the square. It is a popular spot among locals for leisure and social gatherings. The square is surrounded by residential areas, including the Três Bicas neighborhood, which offers housing options for the local community. (MARCIO VASSELAI)</string>
+
+    <!-- Hotel -->
+    <string name="hotel_01_title" translatable="false">Hotel Central</string>
+    <string name="hotel_01_website" translatable="false">https://www.instagram.com/hotelcentral_cp</string>
+    <string name="hotel_01_phone" translatable="false">+55043996080773</string>
+    <string name="hotel_01_address" translatable="false">Av. Mal. Deodoro, 163 – centro, Cornélio Procópio – PR, 86300–000</string>
+    <string name="hotel_01_about">Discover the perfect retreat at Hotel Central in Cornélio Procópio! With traditional accommodations and a welcoming atmosphere, we are ready to host you and your family. Enjoy unmatched comfort and a convenient location to explore everything the city has to offer. Book now and create unforgettable memories this holiday!</string>
+
+    <string name="hotel_02_title" translatable="false">Hotel Midas Cornélio Procópio</string>
+    <string name="hotel_02_website" translatable="false">http://www.hotelmidas.com.br</string>
+    <string name="hotel_02_phone" translatable="false">+5504335203300</string>
+    <string name="hotel_02_address" translatable="false">Av. Paraíso, 560 – Centro, Cornélio Procópio – PR, 86300–000</string>
+    <string name="hotel_02_about">EXCELLENCE IN HOSPITALITY: Located in Cornélio Procópio, in the northern region of Paraná, Hotel Midas has been offering comfort and quality to the entire region for over 20 years with a complete structure. QUALITY SERVICE: Our team is highly prepared and trained to welcome you. We prioritize the quality standard of our service and your perception of comfort and hospitality while staying with us. EASY RESERVATION: You can make your reservation through WhatsApp, email, phone, or directly on our website. STANDARDIZED SERVICES: Our departments are organized, and all of our teams are equally trained to ensure consistent service quality.</string>
+
+    <string name="hotel_03_title" translatable="false">Hotel Sollar</string>
+    <string name="hotel_03_website" translatable="false">https://www.facebook.com/hotelsollar</string>
+    <string name="hotel_03_phone" translatable="false">+5504331321298</string>
+    <string name="hotel_03_address" translatable="false">Av. Padre Paulo Broda, 154 – Centro, Cornélio Procópio – PR, 86300–000</string>
+    <string name="hotel_03_about">Hotel Sollar is located in the center of Cornélio Procópio, Paraná, on Avenida Padre Paulo Broda. This hotel provides a welcoming atmosphere with simple yet well-maintained surroundings, making it ideal for those seeking comfort and convenience. It offers modest rooms with simple decor, a casual restaurant, and covered parking. The hotel also features a full-service spa, perfect for relaxation during your stay. Additionally, the hotel is close to local attractions, including the historic Cathedral Cristo Rei.</string>
+
+    <!-- Restaurant -->
+    <string name="restaurant_01_title" translatable="false">Buffet e Restaurante Champagne</string>
+    <string name="restaurant_01_website" translatable="false">https://www.facebook.com/champagne.champagne.buffet</string>
+    <string name="restaurant_01_phone" translatable="false">+5504335238908</string>
+    <string name="restaurant_01_address" translatable="false">R. Paraíba, 495 – Cornélio Procópio, PR, 86300–000</string>
+    <string name="restaurant_01_about">Champagne Buffet and Restaurant is a well-known dining spot in Cornélio Procópio, PR, offering a variety of delicious buffet options. Known for its welcoming atmosphere and great service, it\'s the perfect place for those who enjoy quality food and a comfortable dining experience.</string>
+
+    <string name="restaurant_02_title" translatable="false">Flamma Steak House</string>
+    <string name="restaurant_02_website" translatable="false">https://www.instagram.com/flammasteakhouse</string>
+    <string name="restaurant_02_phone" translatable="false">+55043996761800</string>
+    <string name="restaurant_02_address" translatable="false">Av. São Paulo, 610 – Cornélio Procópio, PR, 86300–000</string>
+    <string name="restaurant_02_about">Flamma Steak House is a premier dining destination located in Cornélio Procópio, PR. Known for its high-quality cuts of meat, the restaurant offers a cozy, elegant atmosphere perfect for gatherings. With an emphasis on quality service and the finest ingredients, Flamma Steak House promises a satisfying experience for meat lovers.</string>
+
+    <string name="restaurant_03_title" translatable="false">Restaurante Universitário</string>
+    <string name="restaurant_03_address" translatable="false">86300–000, Cornélio Procópio - PR</string>
+    <string name="restaurant_03_about">The University Restaurant in Cornélio Procópio, Paraná, is a popular spot that serves as a dining hub for students and visitors alike. Offering affordable meals with a focus on quality and nutrition, it provides a welcoming atmosphere for those seeking a balanced and satisfying dining experience. It is an essential part of the local academic community, contributing to the well-being of students and faculty.</string>
+
+    <string name="restaurant_04_title" translatable="false">Sabazius Gastrobar</string>
+    <string name="restaurant_04_website" translatable="false">https://www.instagram.com/sabaziusgastrobar</string>
+    <string name="restaurant_04_phone" translatable="false">+55043999520595</string>
+    <string name="restaurant_04_address" translatable="false">R. Colombo, 125 – Cornélio Procópio, PR, 86300–000</string>
+    <string name="restaurant_04_about">Sabazius Gastrobar offers a unique dining experience in Cornélio Procópio, Paraná. Known for its vibrant atmosphere, the gastrobar features a variety of carefully crafted dishes and an excellent selection of drinks. Whether you\'re looking for a casual meal with friends or a special night out, Sabazius provides the perfect setting for any occasion.</string>
+
+</resources>
