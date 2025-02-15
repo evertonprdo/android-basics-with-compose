@@ -1,11 +1,14 @@
 package com.evertonprdo.cornelioprocopio_pr.ui.components
 
-import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.Place
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -17,14 +20,14 @@ import androidx.compose.material3.PermanentNavigationDrawer
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import com.evertonprdo.cornelioprocopio_pr.R
 import com.evertonprdo.cornelioprocopio_pr.ui.AppScreen
 import com.evertonprdo.cornelioprocopio_pr.ui.utils.AppNavigationType
 
 @Composable
-fun DynamicNavMenu(
+fun AppDynamicNavMenu(
     navigationType: AppNavigationType,
     currentTab: AppScreen,
     onTabPressed: (String) -> Unit,
@@ -95,7 +98,7 @@ private fun AppBottomNavigationBar(
                 onClick = { onTabPressed(navItem.destination.name) },
                 icon = {
                     Icon(
-                        painter = painterResource(navItem.icon),
+                        imageVector = navItem.icon,
                         contentDescription = "University"
                     )
                 }
@@ -118,7 +121,7 @@ private fun AppNavigationRail(
                 onClick = { onTabPressed(navItem.destination.name) },
                 icon = {
                     Icon(
-                        painter = painterResource(navItem.icon),
+                        imageVector = navItem.icon,
                         contentDescription = stringResource(navItem.text)
                     )
                 }
@@ -145,7 +148,7 @@ private fun NavigationDrawerContent(
                 },
                 icon = {
                     Icon(
-                        painter = painterResource(navItem.icon),
+                        imageVector = navItem.icon,
                         contentDescription = null
                     )
                 },
@@ -158,24 +161,24 @@ private fun NavigationDrawerContent(
 private data class NavigationItemContent(
     val destination: AppScreen,
     @StringRes val text: Int,
-    @DrawableRes val icon: Int,
+    val icon: ImageVector,
 )
 
 private val navigationItemContentList: List<NavigationItemContent> =
     listOf(
         NavigationItemContent(
             destination = AppScreen.Start,
-            icon = R.drawable.hotel_icon,
-            text = R.string.app_name
+            icon = Icons.Default.Home,
+            text = R.string.home_screen
         ),
         NavigationItemContent(
             destination = AppScreen.List,
-            icon = R.drawable.restaurant,
+            icon = Icons.Default.Place,
             text = R.string.list_screen
         ),
         NavigationItemContent(
             destination = AppScreen.Details,
-            icon = R.drawable.university,
+            icon = Icons.Default.Info,
             text = R.string.details_screen
         ),
     )

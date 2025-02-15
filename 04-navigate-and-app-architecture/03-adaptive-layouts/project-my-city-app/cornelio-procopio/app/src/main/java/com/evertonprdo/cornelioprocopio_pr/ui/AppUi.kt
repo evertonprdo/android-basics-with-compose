@@ -16,7 +16,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.evertonprdo.cornelioprocopio_pr.R
-import com.evertonprdo.cornelioprocopio_pr.ui.components.DynamicNavMenu
+import com.evertonprdo.cornelioprocopio_pr.ui.components.AppDynamicNavMenu
 import com.evertonprdo.cornelioprocopio_pr.ui.theme.AppTheme
 import com.evertonprdo.cornelioprocopio_pr.ui.utils.AppNavigationType
 
@@ -44,7 +44,7 @@ fun CityApp(
     }
 
     Scaffold { innerPadding ->
-        DynamicNavMenu(
+        AppDynamicNavMenu(
             navigationType = navigationType,
             currentTab = currentScreen,
             onTabPressed = { navController.navigate(it) },
