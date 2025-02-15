@@ -17,7 +17,9 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.evertonprdo.cornelioprocopio_pr.R
 import com.evertonprdo.cornelioprocopio_pr.ui.components.AppDynamicNavMenu
+import com.evertonprdo.cornelioprocopio_pr.ui.screens.HomeScreen
 import com.evertonprdo.cornelioprocopio_pr.ui.theme.AppTheme
+import com.evertonprdo.cornelioprocopio_pr.ui.utils.AppContentType
 import com.evertonprdo.cornelioprocopio_pr.ui.utils.AppNavigationType
 
 enum class AppScreen(@StringRes val title: Int) {
@@ -36,11 +38,29 @@ fun CityApp(
         backStackEntry?.destination?.route ?: AppScreen.Start.name
     )
 
-    val navigationType: AppNavigationType = when (windowSize) {
-        WindowWidthSizeClass.Compact -> AppNavigationType.BOTTOM_NAVIGATION
-        WindowWidthSizeClass.Medium -> AppNavigationType.NAVIGATION_RAIL
-        WindowWidthSizeClass.Expanded -> AppNavigationType.PERMANENT_NAVIGATION_DRAWER
-        else -> AppNavigationType.BOTTOM_NAVIGATION
+    val navigationType: AppNavigationType
+    val contentType: AppContentType
+
+    when (windowSize) {
+        WindowWidthSizeClass.Compact -> {
+            navigationType = AppNavigationType.BOTTOM_NAVIGATION
+            contentType = AppContentType.SINGLE_COLUMN
+        }
+
+        WindowWidthSizeClass.Medium -> {
+            navigationType = AppNavigationType.NAVIGATION_RAIL
+            contentType = AppContentType.SINGLE_COLUMN
+        }
+
+        WindowWidthSizeClass.Expanded -> {
+            navigationType = AppNavigationType.PERMANENT_NAVIGATION_DRAWER
+            contentType = AppContentType.SIDE_BY_SIDE
+        }
+
+        else -> {
+            navigationType = AppNavigationType.BOTTOM_NAVIGATION
+            contentType = AppContentType.SINGLE_COLUMN
+        }
     }
 
     Scaffold { innerPadding ->
@@ -58,7 +78,7 @@ fun CityApp(
                 modifier = Modifier.fillMaxSize()
             ) {
                 composable(route = AppScreen.Start.name) {
-                    Text("HomeScreen")
+                    HomeScreen(contentType)
                 }
 
                 composable(route = AppScreen.List.name) {
