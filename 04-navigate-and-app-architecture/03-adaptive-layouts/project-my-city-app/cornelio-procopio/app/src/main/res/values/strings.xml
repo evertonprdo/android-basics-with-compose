@@ -74,5 +74,7 @@
     <string name="restaurant_04_phone" translatable="false">+55043999520595</string>
     <string name="restaurant_04_address" translatable="false">R. Colombo, 125 – Cornélio Procópio, PR, 86300–000</string>
     <string name="restaurant_04_about">Sabazius Gastrobar offers a unique dining experience in Cornélio Procópio, Paraná. Known for its vibrant atmosphere, the gastrobar features a variety of carefully crafted dishes and an excellent selection of drinks. Whether you\'re looking for a casual meal with friends or a special night out, Sabazius provides the perfect setting for any occasion.</string>
+    <string name="list_screen">List of places</string>
+    <string name="details_screen">Details</string>
 
 </resources>
