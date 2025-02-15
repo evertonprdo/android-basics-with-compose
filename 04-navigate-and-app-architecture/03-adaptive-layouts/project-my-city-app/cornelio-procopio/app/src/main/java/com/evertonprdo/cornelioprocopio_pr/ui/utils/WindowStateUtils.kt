@@ -7,3 +7,11 @@ enum class AppNavigationType {
 enum class AppContentType {
     SIDE_BY_SIDE, SINGLE_COLUMN
 }
+
+enum class AppListType {
+    SIDE_FILTER, TOP_FILTER
+}
+
+enum class ScrollDirection() {
+    HORIZONTAL, VERTICAL
+}

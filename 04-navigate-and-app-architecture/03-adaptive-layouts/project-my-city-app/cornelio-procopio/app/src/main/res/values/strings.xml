@@ -79,5 +79,6 @@
     <string name="list_screen">Places</string>
     <string name="details_screen">Details</string>
     <string name="home_screen" translatable="false">Home</string>
+    <string name="all_category">All</string>
 
 </resources>

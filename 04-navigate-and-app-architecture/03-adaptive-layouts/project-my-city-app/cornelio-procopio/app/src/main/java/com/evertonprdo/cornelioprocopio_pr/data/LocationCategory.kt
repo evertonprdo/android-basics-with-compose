@@ -8,6 +8,7 @@ enum class LocationCategory(
     @StringRes val title: Int,
     @DrawableRes val icon: Int
 ) {
+    All(title = R.string.all_category, icon = R.drawable.clear_all),
     University(
         title = R.string.category_public_university,
         icon = R.drawable.university
@@ -20,5 +21,5 @@ enum class LocationCategory(
     Restaurant(
         title = R.string.category_restaurant,
         icon = R.drawable.restaurant
-    )
+    ),
 }

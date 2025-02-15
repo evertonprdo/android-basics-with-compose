@@ -1,16 +1,20 @@
 package com.evertonprdo.cornelioprocopio_pr.ui.screens
 
+import android.view.View
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.calculateEndPadding
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
@@ -23,7 +27,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
+import androidx.core.view.ViewCompat
 import com.evertonprdo.cornelioprocopio_pr.R
 import com.evertonprdo.cornelioprocopio_pr.ui.theme.AppTheme
 import com.evertonprdo.cornelioprocopio_pr.ui.utils.AppContentType
@@ -31,7 +37,7 @@ import com.evertonprdo.cornelioprocopio_pr.ui.utils.AppContentType
 @Composable
 fun HomeScreen(
     contentType: AppContentType,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     when (contentType) {
         AppContentType.SINGLE_COLUMN -> {
@@ -46,6 +52,7 @@ fun HomeScreen(
                         .fillMaxWidth()
                         .height(dimensionResource(R.dimen.banner_height))
                 )
+
                 Column(
                     verticalArrangement = Arrangement.spacedBy(16.dp),
                     modifier = Modifier.padding(16.dp)
@@ -107,6 +114,6 @@ private fun HomeScreenContent() {
 @Composable
 fun HomeScreenPreview() {
     AppTheme {
-        HomeScreen(AppContentType.SIDE_BY_SIDE)
+        HomeScreen(AppContentType.SINGLE_COLUMN)
     }
 }

@@ -5,10 +5,10 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Place
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
@@ -24,6 +24,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import com.evertonprdo.cornelioprocopio_pr.R
 import com.evertonprdo.cornelioprocopio_pr.ui.AppScreen
 import com.evertonprdo.cornelioprocopio_pr.ui.utils.AppNavigationType
@@ -142,7 +143,7 @@ private fun NavigationDrawerContent(
     onTabPressed: (String) -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    Column(modifier = modifier) {
+    Column(modifier = modifier.padding(8.dp)) {
         for (navItem in navigationItemContentList) {
             NavigationDrawerItem(
                 selected = currentTab == navItem.destination,
@@ -180,10 +181,5 @@ private val navigationItemContentList: List<NavigationItemContent> =
             destination = AppScreen.List,
             icon = Icons.Default.Place,
             text = R.string.list_screen
-        ),
-        NavigationItemContent(
-            destination = AppScreen.Details,
-            icon = Icons.Default.Info,
-            text = R.string.details_screen
         ),
     )
