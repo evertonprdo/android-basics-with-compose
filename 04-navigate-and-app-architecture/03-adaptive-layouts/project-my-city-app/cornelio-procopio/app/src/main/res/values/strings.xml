@@ -80,5 +80,8 @@
     <string name="details_screen">Details</string>
     <string name="home_screen" translatable="false">Home</string>
     <string name="all_category">All</string>
+    <string name="details_sect_title">Details</string>
+    <string name="about_sect_title">About</string>
+    <string name="website_button" translatable="false">website</string>
 
 </resources>

@@ -4,6 +4,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -25,15 +26,25 @@ import androidx.compose.ui.unit.dp
 import com.evertonprdo.cornelioprocopio_pr.data.Location
 
 @Composable
-fun AppLocationGrid(locations: List<Location>, modifier: Modifier = Modifier) {
+fun AppLocationGrid(
+    locations: List<Location>,
+    onLocationSelected: (Location) -> Unit,
+    modifier: Modifier = Modifier
+) {
     LazyVerticalGrid(
         verticalArrangement = Arrangement.spacedBy(24.dp),
         horizontalArrangement = Arrangement.spacedBy(24.dp),
         columns = GridCells.Adaptive(320.dp),
-        modifier = modifier.padding(16.dp)
+        modifier = modifier.padding(horizontal = 16.dp)
     ) {
         items(locations, key = { location -> location.title }) { location ->
-            AppLocationItem(location)
+            AppLocationItem(
+                location = location,
+                onClick = { onLocationSelected(location) }
+            )
+        }
+        item {
+            Spacer(modifier = Modifier.height(100.dp))
         }
     }
 }
@@ -41,9 +52,11 @@ fun AppLocationGrid(locations: List<Location>, modifier: Modifier = Modifier) {
 @Composable
 private fun AppLocationItem(
     location: Location,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     Card(
+        onClick = onClick,
         modifier = modifier
     ) {
         location.apply {

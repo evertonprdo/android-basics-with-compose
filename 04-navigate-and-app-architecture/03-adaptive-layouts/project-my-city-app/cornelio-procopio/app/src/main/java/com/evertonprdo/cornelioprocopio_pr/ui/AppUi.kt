@@ -17,6 +17,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.evertonprdo.cornelioprocopio_pr.R
 import com.evertonprdo.cornelioprocopio_pr.ui.components.AppDynamicNavMenu
+import com.evertonprdo.cornelioprocopio_pr.ui.screens.DescriptionScreen
 import com.evertonprdo.cornelioprocopio_pr.ui.screens.HomeScreen
 import com.evertonprdo.cornelioprocopio_pr.ui.screens.places.PlacesScreen
 import com.evertonprdo.cornelioprocopio_pr.ui.theme.AppTheme
@@ -97,7 +98,21 @@ fun CityApp(
                             viewModel.updateCurrentCategory(
                                 it
                             )
+                        },
+                        onLocationSelected = {
+                            viewModel.updateCurrentLocation(
+                                it
+                            )
+                            navController.navigate(AppScreen.Details.name)
                         }
+                    )
+                }
+
+                composable(route = AppScreen.Details.name) {
+                    DescriptionScreen(
+                        location = appUiState.currentLocation,
+                        contentType = contentType,
+                        onBackPressed = { navController.navigateUp() }
                     )
                 }
             }

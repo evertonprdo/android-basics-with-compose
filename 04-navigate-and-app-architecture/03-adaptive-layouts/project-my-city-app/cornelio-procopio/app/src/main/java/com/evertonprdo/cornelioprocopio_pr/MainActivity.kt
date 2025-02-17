@@ -28,8 +28,16 @@ class MainActivity : ComponentActivity() {
 
 @Preview(showBackground = true)
 @Composable
-fun AppPreview() {
+fun AppCompactPreview() {
     AppTheme {
         CityApp(WindowWidthSizeClass.Compact)
+    }
+}
+
+@Preview(showBackground = true, widthDp = 700)
+@Composable
+fun AppMediumPreview() {
+    AppTheme {
+        CityApp(WindowWidthSizeClass.Medium)
     }
 }
