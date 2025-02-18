@@ -1,7 +1,6 @@
 package com.evertonprdo.bookshelf
 
 import com.evertonprdo.bookshelf.data.DefaultAppContainer
-import kotlinx.coroutines.async
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertNotNull
 import org.junit.Assert.assertTrue
@@ -13,9 +12,7 @@ class BooksRepositoryE2ETest {
     fun booksRepository_fetchBooks() = runTest {
         val repository = DefaultAppContainer()
 
-        val books = async {
-            repository.booksRepository.fetchBooks("jazz")
-        }.await()
+        val books = repository.booksRepository.fetchBooks("jazz")
 
         assertNotNull(books)
         assertTrue(books.isNotEmpty())
