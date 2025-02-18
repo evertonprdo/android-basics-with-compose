@@ -21,11 +21,13 @@ class BookshelfViewModel(
     var bookshelfUiState: BookshelfUiState by mutableStateOf(BookshelfUiState.Loading)
         private set
 
+    private val query = "software"
+
     init {
-        fetchBooks("software")
+        fetchBooks()
     }
 
-    fun fetchBooks(query: String) {
+    fun fetchBooks() {
         viewModelScope.launch {
             bookshelfUiState = BookshelfUiState.Loading
 
@@ -49,7 +51,7 @@ class BookshelfViewModel(
 
                 val booksRepository =
                     application.container.booksRepository
-                
+
                 BookshelfViewModel(booksRepository = booksRepository)
             }
         }

@@ -24,7 +24,7 @@ fun BookshelfApp(
     ) { innerPadding ->
         HomeScreen(
             bookshelfUiState = bookshelfViewModel.bookshelfUiState,
-            retryAction = { bookshelfViewModel.fetchBooks("software") },
+            retryAction = bookshelfViewModel::fetchBooks,
             modifier = Modifier.padding(innerPadding),
         )
     }

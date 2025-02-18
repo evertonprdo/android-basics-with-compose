@@ -8,7 +8,8 @@ object BooksMapper {
         return listResponse.items.map { bookItem ->
             Book(
                 id = bookItem.id,
-                imgSrc = httpToHttps(bookItem.volumeInfo.imageLinks.thumbnail)
+                title = bookItem.volumeInfo.title,
+                imgSrc = httpToHttps(bookItem.volumeInfo.imageLinks.thumbnail),
             )
         }
     }

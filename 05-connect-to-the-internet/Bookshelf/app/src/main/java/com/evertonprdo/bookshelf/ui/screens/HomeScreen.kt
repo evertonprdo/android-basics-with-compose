@@ -38,7 +38,11 @@ fun HomeScreen(
 ) {
     when (bookshelfUiState) {
         BookshelfUiState.Loading -> LoadingScreen(modifier = modifier.fillMaxSize())
-        BookshelfUiState.Error -> ErrorScreen(retryAction)
+        BookshelfUiState.Error -> ErrorScreen(
+            retryAction = retryAction,
+            modifier = modifier.fillMaxSize()
+        )
+
         is BookshelfUiState.Success -> BookshelfGrid(
             books = bookshelfUiState.books,
             modifier = modifier.padding(horizontal = 16.dp)
@@ -82,7 +86,7 @@ fun BookCard(
                 .data(book.imgSrc)
                 .crossfade(true)
                 .build(),
-            contentDescription = null,
+            contentDescription = book.title,
             contentScale = ContentScale.Crop,
             placeholder = painterResource(R.drawable.loading_img),
             error = painterResource(R.drawable.ic_broken_image),

@@ -12,15 +12,24 @@ object FakeDataSource {
             items = listOf(
                 BookItem(
                     id = "book-01",
-                    volumeInfo = VolumeInfo(ImageLinks(thumbnail = "uri.1"))
+                    volumeInfo = VolumeInfo(
+                        title = "title-01",
+                        imageLinks = ImageLinks(thumbnail = "uri.1"),
+                    )
                 ),
                 BookItem(
                     id = "book-02",
-                    volumeInfo = VolumeInfo(ImageLinks(thumbnail = "uri.2"))
+                    volumeInfo = VolumeInfo(
+                        title = "title-02",
+                        imageLinks = ImageLinks(thumbnail = "uri.2"),
+                    )
                 ),
                 BookItem(
                     id = "book-03",
-                    volumeInfo = VolumeInfo(ImageLinks(thumbnail = "uri.3"))
+                    volumeInfo = VolumeInfo(
+                        title = "title-03",
+                        imageLinks = ImageLinks(thumbnail = "uri.3"),
+                    )
                 ),
             )
         )
