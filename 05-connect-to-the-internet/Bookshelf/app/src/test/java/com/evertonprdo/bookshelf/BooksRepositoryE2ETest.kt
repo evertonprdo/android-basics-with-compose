@@ -14,7 +14,7 @@ class BooksRepositoryE2ETest {
         val repository = DefaultAppContainer()
 
         val books = async {
-            repository.booksRepository.getBooks("jazz")
+            repository.booksRepository.fetchBooks("jazz")
         }.await()
 
         assertNotNull(books)

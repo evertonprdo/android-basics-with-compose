@@ -5,13 +5,13 @@ import com.evertonprdo.bookshelf.network.BooksApiService
 import com.evertonprdo.bookshelf.network.BooksMapper
 
 interface BooksRepository {
-    suspend fun getBooks(query: String): List<Book>
+    suspend fun fetchBooks(query: String): List<Book>
 }
 
 class NetworkBooksRepository(
     private val booksApiService: BooksApiService
 ) : BooksRepository {
 
-    override suspend fun getBooks(query: String): List<Book> =
+    override suspend fun fetchBooks(query: String): List<Book> =
         BooksMapper.toDomain(booksApiService.fetchBooks(query))
 }
