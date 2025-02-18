@@ -3,7 +3,7 @@ package com.evertonprdo.amphibians
 import com.evertonprdo.amphibians.fake.FakeDataSource
 import com.evertonprdo.amphibians.fake.FakeNetworkAmphibiansRepository
 import com.evertonprdo.amphibians.rules.TestDispatcherRule
-import com.evertonprdo.amphibians.ui.viewmodel.AmphibianUiState
+import com.evertonprdo.amphibians.ui.viewmodel.AmphibiansUiState
 import com.evertonprdo.amphibians.ui.viewmodel.AmphibiansViewModel
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert
@@ -22,7 +22,7 @@ class AmphibiansViewModelTest {
         )
 
         Assert.assertEquals(
-            AmphibianUiState.Success(FakeDataSource.amphibianList),
+            AmphibiansUiState.Success(FakeDataSource.amphibianList),
             viewModel.amphibianUiState
         )
     }

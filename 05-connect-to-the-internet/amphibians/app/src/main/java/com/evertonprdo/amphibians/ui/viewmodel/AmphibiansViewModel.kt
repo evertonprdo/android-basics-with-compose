@@ -19,7 +19,7 @@ import java.io.IOException
 class AmphibiansViewModel(
     private val amphibiansRepository: AmphibiansRepository
 ) : ViewModel() {
-    var amphibianUiState: AmphibianUiState by mutableStateOf(AmphibianUiState.Loading)
+    var amphibianUiState: AmphibiansUiState by mutableStateOf(AmphibiansUiState.Loading)
         private set
 
     init {
@@ -28,16 +28,16 @@ class AmphibiansViewModel(
 
     fun getAmphibians() {
         viewModelScope.launch {
-            amphibianUiState = AmphibianUiState.Loading
+            amphibianUiState = AmphibiansUiState.Loading
 
             amphibianUiState = try {
-                AmphibianUiState.Success(amphibiansRepository.getAmphibians())
+                AmphibiansUiState.Success(amphibiansRepository.getAmphibians())
 
             } catch (e: IOException) {
-                AmphibianUiState.Loading
+                AmphibiansUiState.Loading
 
             } catch (e: HttpException) {
-                AmphibianUiState.Error
+                AmphibiansUiState.Error
 
             }
         }
@@ -49,7 +49,8 @@ class AmphibiansViewModel(
                 val application =
                     (this[APPLICATION_KEY] as AmphibiansApplication)
 
-                val amphibiansRepository = application.container.amphibiansRepository
+                val amphibiansRepository =
+                    application.container.amphibiansRepository
                 AmphibiansViewModel(amphibiansRepository)
             }
         }
