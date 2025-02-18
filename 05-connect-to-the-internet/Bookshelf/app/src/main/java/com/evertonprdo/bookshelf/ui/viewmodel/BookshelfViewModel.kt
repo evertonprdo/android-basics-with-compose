@@ -21,13 +21,24 @@ class BookshelfViewModel(
     var bookshelfUiState: BookshelfUiState by mutableStateOf(BookshelfUiState.Loading)
         private set
 
-    private val query = "software"
+    var query by mutableStateOf("software")
+        private set
+
+    var isQueryEmpty: Boolean = false
+        private set
 
     init {
         fetchBooks()
     }
 
+    fun updateQuery(input: String) {
+        isQueryEmpty = input.isEmpty()
+        query = input
+    }
+
     fun fetchBooks() {
+        if (isQueryEmpty) return
+
         viewModelScope.launch {
             bookshelfUiState = BookshelfUiState.Loading
 

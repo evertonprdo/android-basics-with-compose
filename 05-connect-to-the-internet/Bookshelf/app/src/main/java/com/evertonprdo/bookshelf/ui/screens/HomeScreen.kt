@@ -63,7 +63,7 @@ fun BookshelfGrid(
     ) {
         items(
             items = books,
-            key = { book -> book.id }
+            key = { book -> "${book.id}_${book.etag}" }
         ) { book ->
             BookCard(book)
         }
@@ -90,9 +90,7 @@ fun BookCard(
             contentScale = ContentScale.Crop,
             placeholder = painterResource(R.drawable.loading_img),
             error = painterResource(R.drawable.ic_broken_image),
-            modifier = modifier
-                .fillMaxWidth()
-                .height(300.dp)
+            modifier = modifier.fillMaxWidth()
         )
     }
 }
@@ -118,7 +116,7 @@ fun ErrorScreen(
     ) {
         Image(
             painter = painterResource(id = R.drawable.ic_connection_error),
-            contentDescription = ""
+            contentDescription = null
         )
         Text(
             text = stringResource(R.string.loading_failed),

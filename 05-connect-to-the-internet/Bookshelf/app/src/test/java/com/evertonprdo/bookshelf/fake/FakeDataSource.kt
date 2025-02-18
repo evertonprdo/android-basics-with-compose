@@ -12,6 +12,7 @@ object FakeDataSource {
             items = listOf(
                 BookItem(
                     id = "book-01",
+                    etag = "etag-01",
                     volumeInfo = VolumeInfo(
                         title = "title-01",
                         imageLinks = ImageLinks(thumbnail = "uri.1"),
@@ -19,6 +20,7 @@ object FakeDataSource {
                 ),
                 BookItem(
                     id = "book-02",
+                    etag = "etag-02",
                     volumeInfo = VolumeInfo(
                         title = "title-02",
                         imageLinks = ImageLinks(thumbnail = "uri.2"),
@@ -26,6 +28,7 @@ object FakeDataSource {
                 ),
                 BookItem(
                     id = "book-03",
+                    etag = "etag-02",
                     volumeInfo = VolumeInfo(
                         title = "title-03",
                         imageLinks = ImageLinks(thumbnail = "uri.3"),
