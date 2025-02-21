@@ -6,6 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.evertonprdo.flightsearch.data.local.dao.AirportDao
 import com.evertonprdo.flightsearch.data.local.dao.FavoriteFlightDao
+import com.evertonprdo.flightsearch.data.local.dao.FlightDao
 import com.evertonprdo.flightsearch.data.local.entities.Airport
 import com.evertonprdo.flightsearch.data.local.entities.FavoriteFlight
 
@@ -18,6 +19,7 @@ abstract class FlightDatabase : RoomDatabase() {
 
     abstract fun airportDao(): AirportDao
     abstract fun favoriteFlightDao(): FavoriteFlightDao
+    abstract fun flightDao(): FlightDao
 
     companion object {
         @Volatile

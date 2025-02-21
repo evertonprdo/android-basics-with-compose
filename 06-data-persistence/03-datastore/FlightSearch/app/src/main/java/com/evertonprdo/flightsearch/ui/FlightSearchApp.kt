@@ -29,9 +29,9 @@ fun FlightSearchApp(viewModel: FlightSearchViewModel = viewModel(factory = AppVi
             )
         }
 
-        items(list.value, key = { it.id }) {
+        items(list.value, key = { it.arrive.id }) {
             Text(
-                "${it.iata}: ${it.name}",
+                "Fav: ${it.favorited} Depart: ${it.depart.iata} Arrive: ${it.arrive.iata}",
                 modifier = Modifier.padding(horizontal = 28.dp),
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis

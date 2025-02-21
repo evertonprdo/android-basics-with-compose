@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.evertonprdo.flightsearch.data.repositories.AirportsRepository
 import com.evertonprdo.flightsearch.data.repositories.FlightsRepository
-import com.evertonprdo.flightsearch.model.Airport
+import com.evertonprdo.flightsearch.model.Flight
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.stateIn
@@ -14,9 +14,9 @@ class FlightSearchViewModel(
     private val flightsRepository: FlightsRepository
 ) : ViewModel() {
 
-    var list: StateFlow<List<Airport>> =
-        airportsRepository
-            .fetchAirports("")
+    var list: StateFlow<List<Flight>> =
+        flightsRepository
+            .fetchFlights("BRU")
             .stateIn(
                 scope = viewModelScope,
                 started = SharingStarted.WhileSubscribed(5_000),

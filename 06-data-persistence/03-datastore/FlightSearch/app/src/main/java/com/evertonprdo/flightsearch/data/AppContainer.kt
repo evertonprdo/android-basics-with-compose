@@ -17,7 +17,7 @@ class AppDataContainer(context: Context) : AppContainer {
 
     override val flightsRepository: FlightsRepository by lazy {
         RoomFlightsRepository(
-            airportsDao = database.airportDao(),
+            flightDao = database.flightDao(),
             favoriteFlightDao = database.favoriteFlightDao()
         )
     }

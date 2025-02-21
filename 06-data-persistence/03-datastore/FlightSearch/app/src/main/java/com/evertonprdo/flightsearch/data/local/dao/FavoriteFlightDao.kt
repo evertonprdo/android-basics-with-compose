@@ -5,12 +5,11 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.evertonprdo.flightsearch.data.local.entities.FavoriteFlight
-import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface FavoriteFlightDao {
-    @Query("SELECT * FROM favorite")
-    fun getAllFavoriteFlights(): Flow<List<FavoriteFlight>>
+//    @Query("SELECT * FROM favorite")
+//    fun getAllFavoriteFlights(): Flow<List<FavoriteFlight>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(favFlight: FavoriteFlight)
