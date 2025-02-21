@@ -17,41 +17,34 @@ package com.example.busschedule.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.APPLICATION_KEY
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
+import com.example.busschedule.BusScheduleApplication
 import com.example.busschedule.data.BusSchedule
+import com.example.busschedule.data.BusSchedulesRepository
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flowOf
 
-class BusScheduleViewModel: ViewModel() {
+class BusScheduleViewModel(
+    private val busSchedulesRepository: BusSchedulesRepository
+) : ViewModel() {
 
-    // Get example bus schedule
-    fun getFullSchedule(): Flow<List<BusSchedule>> = flowOf(
-        listOf(
-            BusSchedule(
-                1,
-                "Example Street",
-                0
-            )
-        )
-    )
+    fun getFullSchedule(): Flow<List<BusSchedule>> =
+        busSchedulesRepository.gelAllBusSchedules()
 
-    // Get example bus schedule by stop
-    fun getScheduleFor(stopName: String): Flow<List<BusSchedule>> = flowOf(
-        listOf(
-            BusSchedule(
-                1,
-                "Example Street",
-                0
-            )
-        )
-    )
+    fun getScheduleFor(stopName: String): Flow<List<BusSchedule>> =
+        busSchedulesRepository.getBusScheduleFor(stopName)
+
 
     companion object {
-        val factory : ViewModelProvider.Factory = viewModelFactory {
+        val factory: ViewModelProvider.Factory = viewModelFactory {
             initializer {
-                BusScheduleViewModel()
+                BusScheduleViewModel(
+                    (this[APPLICATION_KEY] as BusScheduleApplication).container.busSchedulesRepository
+                )
             }
         }
     }
 }
+
+data class HomeUiState(val busSchedulesList: List<BusSchedule> = listOf())
