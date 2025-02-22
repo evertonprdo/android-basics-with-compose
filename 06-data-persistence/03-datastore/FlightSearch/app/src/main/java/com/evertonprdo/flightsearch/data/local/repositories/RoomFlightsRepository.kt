@@ -17,8 +17,8 @@ class RoomFlightsRepository(
     override suspend fun updateFavoriteFlight(flight: Flight) {
         if (flight.favorited) {
             return favoriteFlightDao.delete(
-                flight.depart.iata,
-                flight.arrive.iata
+                departureCode = flight.depart.iata,
+                destinationCode = flight.arrive.iata
             )
         }
 
@@ -31,11 +31,11 @@ class RoomFlightsRepository(
     }
 
     override fun fetchFlights(iata: String): Flow<List<Flight>> =
-        flightDao.getFlights(iata).map {
+        flightDao.fetchFlights(iata).map {
             it.map(FlightMapper::toDomain)
         }
 
-    override fun fetchFavoriteFlights(): Flow<List<Flight>> =
+    override fun getFavoriteFlights(): Flow<List<Flight>> =
         flightDao.getAllFavoriteFlights().map {
             it.map(FlightMapper::toDomain)
         }

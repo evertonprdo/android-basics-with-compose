@@ -1,4 +1,4 @@
-package com.evertonprdo.flightsearch
+package com.evertonprdo.flightsearch.dao
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.evertonprdo.flightsearch.data.local.FlightDatabase
@@ -45,6 +45,7 @@ class AirportDaoTest {
     fun daoFetchAirports_fetchAirportsByName() = runBlocking {
         val searchVal = "EsT"
         val queryNameResult = airportDao.fetchAirports(searchVal).first()
+
         val hasExpectedNames =
             queryNameResult.all {
                 it.name.contains(

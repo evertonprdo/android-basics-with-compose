@@ -5,6 +5,6 @@ import kotlinx.coroutines.flow.Flow
 
 interface FlightsRepository {
     fun fetchFlights(iata: String): Flow<List<Flight>>
-    fun fetchFavoriteFlights(): Flow<List<Flight>>
+    fun getFavoriteFlights(): Flow<List<Flight>>
     suspend fun updateFavoriteFlight(flight: Flight)
 }

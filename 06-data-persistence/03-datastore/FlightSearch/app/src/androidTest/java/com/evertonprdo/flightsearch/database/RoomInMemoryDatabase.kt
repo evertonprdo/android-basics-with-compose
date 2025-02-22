@@ -14,11 +14,21 @@ object RoomInMemoryDatabase {
             .allowMainThreadQueries()
             .build()
 
-        populateDatabase(flightDatabase)
+        seedAirports(flightDatabase)
         return flightDatabase
     }
 
-    private fun populateDatabase(flightDatabase: FlightDatabase) {
+    fun seedFavoriteFlights(flightDatabase: FlightDatabase) {
+        flightDatabase.openHelper.writableDatabase.execSQL(
+            """
+               INSERT INTO favorite (departure_code, destination_code)
+               VALUES 
+                    ('TS1', 'TS2');
+        """
+        )
+    }
+
+    private fun seedAirports(flightDatabase: FlightDatabase) {
         flightDatabase.openHelper.writableDatabase.execSQL(
             """
             INSERT INTO airport (name, iata_code, passengers)

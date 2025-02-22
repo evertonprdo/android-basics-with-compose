@@ -36,7 +36,7 @@ interface FlightDao {
         ORDER BY dest.passengers DESC
     """
     )
-    fun getFlights(iata: String): Flow<List<FlightDto>>
+    fun fetchFlights(iata: String): Flow<List<FlightDto>>
 
     @Query( // Query by chatGPT
         """

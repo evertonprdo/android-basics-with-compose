@@ -18,12 +18,12 @@ interface AirportDao {
     )
     fun fetchAirports(query: String): Flow<List<Airport>>
 
-    @Query("SELECT * FROM airport ORDER BY passengers")
-    fun getAllAirports(): Flow<List<Airport>>
+//    @Query("SELECT * FROM airport ORDER BY passengers")
+//    fun getAllAirports(): Flow<List<Airport>>
 
     @Query("SELECT * FROM airport WHERE iata_code = :iata")
     fun fetchAirport(iata: String): Flow<Airport>
 
-    @Query("SELECT * FROM airport WHERE id = :id")
-    fun fetchAirport(id: Int): Flow<Airport>
+//    @Query("SELECT * FROM airport WHERE id = :id")
+//    fun fetchAirport(id: Int): Flow<Airport>
 }
