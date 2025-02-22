@@ -10,8 +10,8 @@ interface AirportDao {
     @Query(
         """
         SELECT * FROM airport
-        WHERE name LIKE '%' || :query || '%'
-        OR iata_code LIKE :query || '%' 
+        WHERE name LIKE '%' || :query || '%' COLLATE NOCASE
+        OR iata_code LIKE :query || '%' COLLATE BINARY
         ORDER BY passengers DESC
         LIMIT 10
     """
