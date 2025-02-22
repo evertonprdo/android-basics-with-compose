@@ -14,7 +14,8 @@ object AppViewModelProvider {
 
             FlightSearchViewModel(
                 appContainer.airportsRepository,
-                appContainer.flightsRepository
+                appContainer.flightsRepository,
+                appContainer.flightSearchCacheRepository,
             )
         }
     }
