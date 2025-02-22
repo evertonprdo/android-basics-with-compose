@@ -1,5 +1,8 @@
 package com.evertonprdo.flightsearch.ui.viewmodel
 
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.evertonprdo.flightsearch.data.repositories.AirportsRepository
@@ -7,8 +10,14 @@ import com.evertonprdo.flightsearch.data.repositories.FlightSearchCacheRepositor
 import com.evertonprdo.flightsearch.data.repositories.FlightsRepository
 import com.evertonprdo.flightsearch.model.Airport
 import com.evertonprdo.flightsearch.model.Flight
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.FlowPreview
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.debounce
+import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.stateIn
@@ -20,15 +29,24 @@ class FlightSearchViewModel(
     private val flightSearchCacheRepository: FlightSearchCacheRepository
 ) : ViewModel() {
 
-    val cachedIataCode: StateFlow<String?> =
-        flightSearchCacheRepository.getCachedIataCode.stateIn(
-            scope = viewModelScope,
-            started = SharingStarted.WhileSubscribed(TIMEOUT_MILLIS),
-            initialValue = null
-        )
+    private val _userSearch = MutableStateFlow("")
+    val userSearch: StateFlow<String> = _userSearch
 
+    var isInputEnabled by mutableStateOf(false)
+        private set
+
+    init {
+        viewModelScope.launch {
+            _userSearch.value =
+                flightSearchCacheRepository.airportIataCode.first() ?: ""
+
+            isInputEnabled = true
+        }
+    }
+
+    @OptIn(ExperimentalCoroutinesApi::class)
     val currAirport: StateFlow<Airport?> =
-        flightSearchCacheRepository.getCachedIataCode.flatMapLatest {
+        flightSearchCacheRepository.airportIataCode.flatMapLatest {
             if (it == null)
                 flowOf(null)
             else
@@ -39,6 +57,7 @@ class FlightSearchViewModel(
             initialValue = null
         )
 
+    @OptIn(ExperimentalCoroutinesApi::class)
     val flights: StateFlow<List<Flight>> =
         currAirport.flatMapLatest {
             if (it == null)
@@ -51,10 +70,29 @@ class FlightSearchViewModel(
             initialValue = emptyList()
         )
 
-    fun setCurrentAirport(iata: String?) {
+    @OptIn(ExperimentalCoroutinesApi::class, FlowPreview::class)
+    val airports: StateFlow<List<Airport>> =
+        userSearch
+            .debounce(300)
+            .distinctUntilChanged()
+            .flatMapLatest { query ->
+                airportsRepository.fetchAirports(query)
+            }
+            .stateIn(
+                scope = viewModelScope,
+                started = SharingStarted.WhileSubscribed(TIMEOUT_MILLIS),
+                initialValue = emptyList()
+            )
+
+    fun updateUserSearch(query: String) {
+        _userSearch.value = query
+    }
+
+    private fun setCurrentAirport(airport: Airport?) {
         viewModelScope.launch {
-            flightSearchCacheRepository.cacheIataCode(iata)
+            flightSearchCacheRepository.cacheIataCode(airport?.iata)
         }
+        _userSearch.value = airport?.iata ?: ""
     }
 
     companion object {

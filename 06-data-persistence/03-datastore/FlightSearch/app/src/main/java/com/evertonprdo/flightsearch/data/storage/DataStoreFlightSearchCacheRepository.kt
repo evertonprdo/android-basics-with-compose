@@ -21,7 +21,7 @@ class DataStoreFlightSearchCacheRepository(
         const val TAG = "CacheRepo"
     }
 
-    override val getCachedIataCode: Flow<String?> = dataStore.data
+    override val airportIataCode: Flow<String?> = dataStore.data
         .catch {
             if (it is IOException) {
                 Log.e(TAG, "Error reading preferences.", it)
