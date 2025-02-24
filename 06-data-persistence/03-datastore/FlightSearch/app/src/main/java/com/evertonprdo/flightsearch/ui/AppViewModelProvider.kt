@@ -5,7 +5,7 @@ import androidx.lifecycle.viewmodel.CreationExtras
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.evertonprdo.flightsearch.FlightApplication
-import com.evertonprdo.flightsearch.ui.viewmodel.FlightSearchViewModel
+import com.evertonprdo.flightsearch.ui.flightsearch.FlightSearchViewModel
 
 object AppViewModelProvider {
     val Factory = viewModelFactory {

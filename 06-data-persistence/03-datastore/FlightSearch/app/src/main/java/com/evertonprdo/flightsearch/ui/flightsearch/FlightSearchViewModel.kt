@@ -1,8 +1,5 @@
-package com.evertonprdo.flightsearch.ui.viewmodel
+package com.evertonprdo.flightsearch.ui.flightsearch
 
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.evertonprdo.flightsearch.data.repositories.AirportsRepository
@@ -32,15 +29,10 @@ class FlightSearchViewModel(
     private val _userSearch = MutableStateFlow("")
     val userSearch: StateFlow<String> = _userSearch
 
-    var isInputEnabled by mutableStateOf(false)
-        private set
-
     init {
         viewModelScope.launch {
             _userSearch.value =
                 flightSearchCacheRepository.airportIataCode.first() ?: ""
-
-            isInputEnabled = true
         }
     }
 
@@ -75,9 +67,7 @@ class FlightSearchViewModel(
         userSearch
             .debounce(300)
             .distinctUntilChanged()
-            .flatMapLatest { query ->
-                airportsRepository.fetchAirports(query)
-            }
+            .flatMapLatest { airport -> airportsRepository.fetchAirports(airport) }
             .stateIn(
                 scope = viewModelScope,
                 started = SharingStarted.WhileSubscribed(TIMEOUT_MILLIS),
@@ -88,7 +78,13 @@ class FlightSearchViewModel(
         _userSearch.value = query
     }
 
-    private fun setCurrentAirport(airport: Airport?) {
+    fun updateFlightFavorite(flight: Flight) {
+        viewModelScope.launch {
+            flightsRepository.updateFavoriteFlight(flight)
+        }
+    }
+
+    fun setCurrentAirport(airport: Airport?) {
         viewModelScope.launch {
             flightSearchCacheRepository.cacheIataCode(airport?.iata)
         }
