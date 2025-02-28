@@ -1,15 +1,18 @@
 package com.evertonprdo.cornelioprocopio_pr.ui.screens.places
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.widthIn
-import androidx.compose.foundation.layout.wrapContentWidth
-import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -18,11 +21,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
-import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import com.evertonprdo.cornelioprocopio_pr.R
 import com.evertonprdo.cornelioprocopio_pr.data.LocationCategory
 import com.evertonprdo.cornelioprocopio_pr.ui.utils.ScrollDirection
 import kotlin.enums.EnumEntries
@@ -37,14 +38,19 @@ fun AppCategoryList(
 ) {
     when (scrollDirection) {
         ScrollDirection.VERTICAL -> {
-            LazyColumn(modifier = modifier) {
-                items(categories) { category ->
+            Column(
+                modifier = modifier
+                    .width(IntrinsicSize.Min)
+                    .verticalScroll(rememberScrollState())
+                    .padding(end = 16.dp)
+            ) {
+                for (category in categories) {
                     AppCategoryItem(
                         title = stringResource(category.title),
                         icon = painterResource(category.icon),
                         onClick = { onClickCategory(category) },
                         focused = currentCategory == category,
-                        fillWidth = true
+                        modifier = Modifier.fillMaxWidth()
                     )
                 }
             }
@@ -53,6 +59,7 @@ fun AppCategoryList(
         ScrollDirection.HORIZONTAL -> {
             LazyRow(
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
+                contentPadding = PaddingValues(horizontal = 16.dp),
                 modifier = modifier
             ) {
                 items(categories) { category ->
@@ -75,7 +82,6 @@ private fun AppCategoryItem(
     focused: Boolean,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    fillWidth: Boolean = false,
 ) {
     val bgColor =
         if (focused) MaterialTheme.colorScheme.inversePrimary
@@ -85,19 +91,13 @@ private fun AppCategoryItem(
         colors = CardDefaults.cardColors(containerColor = bgColor),
         onClick = onClick,
         shape = RoundedCornerShape(100),
-        modifier = if (fillWidth)
-            modifier
-                .widthIn(max = dimensionResource(R.dimen.drawer_width))
-                .fillMaxWidth()
-                .padding(end = 8.dp)
-        else
-            modifier
-                .wrapContentWidth()
-                .padding(horizontal = 8.dp)
+        modifier = modifier
     ) {
         Row(
             horizontalArrangement = Arrangement.spacedBy(8.dp),
-            modifier = Modifier.padding(vertical = 8.dp, horizontal = 16.dp)
+            modifier = Modifier
+                .padding(vertical = 8.dp, horizontal = 16.dp)
+                .width(IntrinsicSize.Max)
         ) {
             Icon(icon, null)
             Text(title)

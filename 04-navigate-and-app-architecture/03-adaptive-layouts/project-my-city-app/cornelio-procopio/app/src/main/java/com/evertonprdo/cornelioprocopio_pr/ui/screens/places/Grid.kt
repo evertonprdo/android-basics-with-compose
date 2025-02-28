@@ -3,8 +3,8 @@ package com.evertonprdo.cornelioprocopio_pr.ui.screens.places
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -35,6 +35,7 @@ fun AppLocationGrid(
         verticalArrangement = Arrangement.spacedBy(24.dp),
         horizontalArrangement = Arrangement.spacedBy(24.dp),
         columns = GridCells.Adaptive(320.dp),
+        contentPadding = PaddingValues(bottom = 100.dp),
         modifier = modifier.padding(horizontal = 16.dp)
     ) {
         items(locations, key = { location -> location.title }) { location ->
@@ -42,9 +43,6 @@ fun AppLocationGrid(
                 location = location,
                 onClick = { onLocationSelected(location) }
             )
-        }
-        item {
-            Spacer(modifier = Modifier.height(100.dp))
         }
     }
 }
