@@ -2,9 +2,8 @@ package com.evertonprdo.flightsearch.ui.flightsearch
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.grid.GridCells
@@ -41,7 +40,8 @@ fun FlightList(
         verticalArrangement = Arrangement.spacedBy(16.dp),
         horizontalArrangement = Arrangement.spacedBy(16.dp),
         state = lazyGridState,
-        modifier = modifier
+        modifier = modifier,
+        contentPadding = PaddingValues(bottom = 100.dp)
     ) {
         items(
             flights,
@@ -53,8 +53,6 @@ fun FlightList(
                 onClickFavorite = onClickFavorite
             )
         }
-
-        item { Spacer(modifier = Modifier.height(100.dp)) }
     }
 }
 

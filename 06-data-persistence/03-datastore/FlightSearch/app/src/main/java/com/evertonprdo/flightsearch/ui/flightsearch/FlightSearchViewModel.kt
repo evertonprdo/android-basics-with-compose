@@ -1,6 +1,5 @@
 package com.evertonprdo.flightsearch.ui.flightsearch
 
-import androidx.compose.foundation.lazy.grid.LazyGridState
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.evertonprdo.flightsearch.data.repositories.AirportsRepository
@@ -20,17 +19,12 @@ import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import kotlin.coroutines.CoroutineContext
 
 class FlightSearchViewModel(
     private val airportsRepository: AirportsRepository,
     private val flightsRepository: FlightsRepository,
     private val flightSearchCacheRepository: FlightSearchCacheRepository
 ) : ViewModel() {
-
-    val lazyGridState = LazyGridState()
-
     private val _userSearch = MutableStateFlow("")
     val userSearch: StateFlow<String> = _userSearch
 
@@ -94,14 +88,6 @@ class FlightSearchViewModel(
             flightSearchCacheRepository.cacheIataCode(airport?.iata)
         }
         _userSearch.value = airport?.iata ?: ""
-    }
-
-    fun scrollToTop(compositionCoroutineContext: CoroutineContext) {
-        viewModelScope.launch {
-            withContext(compositionCoroutineContext) {
-                lazyGridState.animateScrollToItem(0)
-            }
-        }
     }
 
     companion object {

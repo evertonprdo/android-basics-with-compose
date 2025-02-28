@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.widthIn
+import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material3.Icon
@@ -22,7 +23,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.evertonprdo.flightsearch.model.Airport
 import com.evertonprdo.flightsearch.ui.AppViewModelProvider
+import kotlinx.coroutines.launch
 
 @Composable
 fun FlightSearchApp(
@@ -34,7 +37,13 @@ fun FlightSearchApp(
     val airports = viewModel.airports.collectAsState()
     val flights = viewModel.flights.collectAsState()
 
+    val lazyGridState = rememberLazyGridState()
     val coroutineScope = rememberCoroutineScope()
+
+    val onSelectAirport: (Airport?) -> Unit = {
+        viewModel.setCurrentAirport(it)
+        coroutineScope.launch { lazyGridState.animateScrollToItem(0) }
+    }
 
     Scaffold { innerPadding ->
         Box(modifier = Modifier.fillMaxSize()) {
@@ -58,7 +67,7 @@ fun FlightSearchApp(
                 FlightList(
                     flights = flights.value,
                     onClickFavorite = viewModel::updateFlightFavorite,
-                    lazyGridState = viewModel.lazyGridState
+                    lazyGridState = lazyGridState
                 )
             }
 
@@ -71,16 +80,10 @@ fun FlightSearchApp(
                     onSearchChange = viewModel::updateUserSearch,
                     airports = airports.value,
                     height = searchHeight,
-                    onSelectAirport = {
-                        viewModel.setCurrentAirport(it)
-                        viewModel.scrollToTop(coroutineScope.coroutineContext)
-                    },
+                    onSelectAirport = onSelectAirport,
                     trailingIcon = {
                         SearchBarTrailingIcon(
-                            onClick = {
-                                viewModel.setCurrentAirport(null)
-                                viewModel.scrollToTop(coroutineScope.coroutineContext)
-                            },
+                            onClick = { onSelectAirport(null) },
                             visible = currAirport.value != null
                         )
                     },
