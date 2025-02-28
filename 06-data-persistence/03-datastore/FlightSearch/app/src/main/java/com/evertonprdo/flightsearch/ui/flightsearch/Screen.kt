@@ -16,6 +16,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
@@ -32,6 +33,8 @@ fun FlightSearchApp(
 
     val airports = viewModel.airports.collectAsState()
     val flights = viewModel.flights.collectAsState()
+
+    val coroutineScope = rememberCoroutineScope()
 
     Scaffold { innerPadding ->
         Box(modifier = Modifier.fillMaxSize()) {
@@ -55,6 +58,7 @@ fun FlightSearchApp(
                 FlightList(
                     flights = flights.value,
                     onClickFavorite = viewModel::updateFlightFavorite,
+                    lazyGridState = viewModel.lazyGridState
                 )
             }
 
@@ -67,10 +71,16 @@ fun FlightSearchApp(
                     onSearchChange = viewModel::updateUserSearch,
                     airports = airports.value,
                     height = searchHeight,
-                    onSelectAirport = viewModel::setCurrentAirport,
+                    onSelectAirport = {
+                        viewModel.setCurrentAirport(it)
+                        viewModel.scrollToTop(coroutineScope.coroutineContext)
+                    },
                     trailingIcon = {
                         SearchBarTrailingIcon(
-                            onClick = { viewModel.setCurrentAirport(null) },
+                            onClick = {
+                                viewModel.setCurrentAirport(null)
+                                viewModel.scrollToTop(coroutineScope.coroutineContext)
+                            },
                             visible = currAirport.value != null
                         )
                     },
